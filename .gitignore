@@ -24,3 +24,8 @@ src/main/webapp/fonts/*
 
 # If using jenv for JDK management
 /.java-version
+
+# Cypress
+.env
+cypress/screenshots/*
+cypress/videos/*
