@@ -47,11 +47,6 @@ public class SynapseJSNIUtilsImpl implements SynapseJSNIUtils {
 	}-*/;
 
   @Override
-  public void loadSummaryDetailsShim() {
-    _loadSummaryDetailsShim();
-  }
-
-  @Override
   public void loadTableSorters() {
     _tablesorter();
   }
