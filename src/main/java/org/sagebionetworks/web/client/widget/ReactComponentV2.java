@@ -238,8 +238,6 @@ public abstract class ReactComponentV2<
     detachNonReactChildElements();
 
     destroyRoot();
-
-    super.onUnload();
   }
 
   /**
