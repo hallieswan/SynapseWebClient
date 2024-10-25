@@ -10,10 +10,7 @@ public class React {
 
   public static native <
     T extends ReactComponentType<P>, P extends ReactComponentProps
-  > ReactElement<T, P> createElement(
-    ReactComponentType<P> componentType,
-    P props
-  );
+  > ReactElement<T, P> createElement(ReactComponentType<P> componentType);
 
   public static native <
     T extends ReactComponentType<P>, P extends ReactComponentProps
@@ -83,4 +80,6 @@ public class React {
     ReactComponentProps props,
     ReactElement... children
   );
+
+  public static ReactComponentType<EmptyProps> Fragment;
 }
