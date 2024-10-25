@@ -245,7 +245,7 @@ public class Uploader
       currentUploadType = UploadType.S3;
       view.showUploadingToSynapseStorage();
     } else {
-      // we have a parent entity, check to see where we are suppose to upload the file(s)
+      // we have a parent entity, check to see where we are supposed to upload the file(s)
       String uploadDestinationsEntityId = parentEntityId != null
         ? parentEntityId
         : entity.getId();
