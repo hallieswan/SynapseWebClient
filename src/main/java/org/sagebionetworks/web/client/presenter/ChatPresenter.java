@@ -37,12 +37,14 @@ public class ChatPresenter
     if (initialMessage != null) {
       initialMessage = gwt.decodeQueryString(initialMessage);
     }
-    String agentId = place.getParam(ChatPlace.AGENT_ID);
+    String agentRegistrationId = place.getParam(
+      ChatPlace.AGENT_REGISTRATION_ID
+    );
     String chatbotName = place.getParam(ChatPlace.CHATBOT_NAME);
     if (chatbotName != null) {
       chatbotName = gwt.decodeQueryString(chatbotName);
     }
 
-    view.render(initialMessage, agentId, chatbotName);
+    view.render(initialMessage, agentRegistrationId, chatbotName);
   }
 }
