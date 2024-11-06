@@ -574,6 +574,8 @@ import org.sagebionetworks.web.client.widget.profile.UserProfileWidget;
 import org.sagebionetworks.web.client.widget.profile.UserProfileWidgetImpl;
 import org.sagebionetworks.web.client.widget.profile.UserProfileWidgetView;
 import org.sagebionetworks.web.client.widget.profile.UserProfileWidgetViewImpl;
+import org.sagebionetworks.web.client.widget.projectdataavailability.ProjectDataAvailabilityView;
+import org.sagebionetworks.web.client.widget.projectdataavailability.ProjectDataAvailabilityViewImpl;
 import org.sagebionetworks.web.client.widget.provenance.v2.ProvenanceWidgetView;
 import org.sagebionetworks.web.client.widget.provenance.v2.ProvenanceWidgetViewImpl;
 import org.sagebionetworks.web.client.widget.refresh.RefreshAlertView;
@@ -1619,5 +1621,8 @@ public class PortalGinModule extends AbstractGinModule {
     bind(FeatureFlagConfig.class).in(Singleton.class);
     bind(EntityTypeIcon.class).to(EntityTypeIconImpl.class);
     bind(OneSageUtils.class).to(OneSageUtilsImpl.class);
+    bind(ProjectDataAvailabilityView.class)
+      .to(ProjectDataAvailabilityViewImpl.class)
+      .in(Singleton.class);
   }
 }
