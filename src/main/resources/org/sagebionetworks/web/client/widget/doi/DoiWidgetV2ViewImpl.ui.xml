@@ -4,7 +4,7 @@
   xmlns:bh="urn:import:org.gwtbootstrap3.client.ui.html"
   xmlns:b="urn:import:org.gwtbootstrap3.client.ui"
 >
-  <bh:Div addStyleNames="flexcontainer-column margin-right-40">
+  <bh:Div addStyleNames="flexcontainer-column">
     <bh:Span ui:field="synAlertContainer" />
     <bh:Span
       ui:field="doiLabel"

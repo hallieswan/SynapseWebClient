@@ -8,8 +8,8 @@
   <g:HTMLPanel addStyleNames="entityMetadata entity-page-side-margins">
     <g:HTMLPanel ui:field="detailedMetadata">
       <g:SimplePanel ui:field="entityModalWidgetContainer" />
-      <bh:Div addStyleNames="flexcontainer-row">
-        <bh:Div addStyleNames="flexcontainer-column margin-right-40">
+      <bh:Div addStyleNames="flexcontainer-row-unless-xs gap-20px-40px">
+        <bh:Div addStyleNames="flexcontainer-column">
           <bh:Div addStyleNames="flexcontainer-row">
             <bh:Span
               addStyleNames="boldText margin-right-5"
@@ -30,7 +30,7 @@
         <bh:Span ui:field="doiPanel" />
         <bh:Span
           ui:field="uploadDestinationPanel"
-          addStyleNames="flexcontainer-column margin-right-40"
+          addStyleNames="flexcontainer-column"
           visible="false"
         >
           <bh:Span addStyleNames="boldText">Project Storage Location</bh:Span>
