@@ -1,5 +1,6 @@
 package org.sagebionetworks.web.client.widget.projectdataavailability;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 import org.sagebionetworks.web.client.context.SynapseReactClientFullContextPropsProvider;
@@ -29,17 +30,15 @@ public class ProjectDataAvailabilityViewImpl
 
   @Override
   public void setProjectId(String projectId) {
-    if (container.isAttached()) {
-      ProjectDataAvailabilityProps props = ProjectDataAvailabilityProps.create(
-        projectId,
-        null
-      );
-      ReactElement component = React.createElementWithSynapseContext(
-        SRC.SynapseComponents.ProjectDataAvailability,
-        props,
-        propsProvider.getJsInteropContextProps()
-      );
-      container.render(component);
-    }
+    ProjectDataAvailabilityProps props = ProjectDataAvailabilityProps.create(
+      projectId,
+      null
+    );
+    ReactElement component = React.createElementWithSynapseContext(
+      SRC.SynapseComponents.ProjectDataAvailability,
+      props,
+      propsProvider.getJsInteropContextProps()
+    );
+    container.render(component);
   }
 }
