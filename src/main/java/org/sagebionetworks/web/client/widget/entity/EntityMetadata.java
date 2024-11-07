@@ -13,7 +13,6 @@ import org.sagebionetworks.repo.model.Folder;
 import org.sagebionetworks.repo.model.ObjectType;
 import org.sagebionetworks.repo.model.Project;
 import org.sagebionetworks.repo.model.VersionableEntity;
-import org.sagebionetworks.repo.model.docker.DockerRepository;
 import org.sagebionetworks.repo.model.doi.v2.DoiAssociation;
 import org.sagebionetworks.repo.model.entitybundle.v2.EntityBundle;
 import org.sagebionetworks.repo.model.file.ExternalGoogleCloudUploadDestination;
@@ -23,7 +22,6 @@ import org.sagebionetworks.repo.model.file.ExternalUploadDestination;
 import org.sagebionetworks.repo.model.file.S3UploadDestination;
 import org.sagebionetworks.repo.model.file.UploadDestination;
 import org.sagebionetworks.repo.model.file.UploadType;
-import org.sagebionetworks.repo.model.table.TableEntity;
 import org.sagebionetworks.web.client.PortalGinInjector;
 import org.sagebionetworks.web.client.SynapseJSNIUtils;
 import org.sagebionetworks.web.client.SynapseJavascriptClient;
@@ -31,7 +29,7 @@ import org.sagebionetworks.web.client.widget.doi.DoiWidgetV2;
 import org.sagebionetworks.web.client.widget.entity.controller.EntityActionControllerImpl;
 import org.sagebionetworks.web.client.widget.entity.menu.v3.Action;
 import org.sagebionetworks.web.client.widget.entity.menu.v3.EntityActionMenu;
-import org.sagebionetworks.web.client.widget.entity.restriction.v2.RestrictionWidget;
+import org.sagebionetworks.web.client.widget.projectdataavailability.ProjectDataAvaiilability;
 
 public class EntityMetadata {
 
@@ -41,10 +39,8 @@ public class EntityMetadata {
   private final SynapseJavascriptClient jsClient;
   private final SynapseJSNIUtils jsni;
   private final PortalGinInjector ginInjector;
-  private final ContainerItemCountWidget containerItemCountWidget;
-  private final org.sagebionetworks.web.client.widget.entity.restriction.v2.RestrictionWidget restrictionWidgetV2;
   private final EntityModalWidget entityModalWidget;
-
+  private ProjectDataAvaiilability projectDataAvailabilityWidget;
   private boolean annotationsAreVisible = false;
 
   @Inject
@@ -53,25 +49,20 @@ public class EntityMetadata {
     DoiWidgetV2 doiWidgetV2,
     SynapseJavascriptClient jsClient,
     SynapseJSNIUtils jsni,
-    RestrictionWidget restrictionWidgetV2,
-    ContainerItemCountWidget containerItemCountWidget,
     PortalGinInjector ginInjector,
-    EntityModalWidget entityModalWidget
+    EntityModalWidget entityModalWidget,
+    ProjectDataAvaiilability projectDataAvailabilityWidget
   ) {
     this.view = view;
     this.doiWidgetV2 = doiWidgetV2;
     this.jsClient = jsClient;
     this.jsni = jsni;
-    this.restrictionWidgetV2 = restrictionWidgetV2;
-    this.containerItemCountWidget = containerItemCountWidget;
     this.ginInjector = ginInjector;
     this.entityModalWidget = entityModalWidget;
+    this.projectDataAvailabilityWidget = projectDataAvailabilityWidget;
     this.view.setDoiWidget(doiWidgetV2);
     this.view.setEntityModalWidget(entityModalWidget);
-    this.view.setRestrictionWidgetV2(restrictionWidgetV2);
-    this.view.setContainerItemCountWidget(containerItemCountWidget);
-    restrictionWidgetV2.setShowChangeLink(true);
-    view.setRestrictionWidgetV2Visible(true);
+    this.view.setProjectDataAvailabilityWidget(projectDataAvailabilityWidget);
   }
 
   public Widget asWidget() {
@@ -133,22 +124,14 @@ public class EntityMetadata {
           !((VersionableEntity) bundle.getEntity()).getIsLatestVersion()
         );
       getVersionHistoryWidget().setEntityBundle(bundle, versionNumber);
-      view.setRestrictionPanelVisible(true);
     } else {
       if (versionHistoryWidget != null) {
         versionHistoryWidget.setVisible(false);
       }
-      view.setRestrictionPanelVisible(
-        en instanceof TableEntity ||
-        en instanceof Folder ||
-        en instanceof DockerRepository
-      );
-    }
-    if (bundle.getEntity() instanceof Folder) {
-      containerItemCountWidget.configure(bundle.getEntity().getId());
     }
     configureStorageLocation(en);
 
+    projectDataAvailabilityWidget.setProjectId(en.getId());
     // An unversioned DOI may not have been included in the (versioned) entity bundle, so we should see if one exists
     if (
       bundle.getDoiAssociation() == null && // If a versioned DOI exists, we should show that
@@ -174,10 +157,6 @@ public class EntityMetadata {
     } else if (bundle.getDoiAssociation() != null) {
       doiWidgetV2.configure(bundle.getDoiAssociation());
     }
-    restrictionWidgetV2.configure(
-      en,
-      bundle.getPermissions().getCanChangePermissions()
-    );
   }
 
   public void setAnnotationsVisible(boolean visible) {
@@ -187,7 +166,6 @@ public class EntityMetadata {
 
   public void clear() {
     doiWidgetV2.clear();
-    containerItemCountWidget.clear();
     view.clear();
   }
 

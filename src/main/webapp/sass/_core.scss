@@ -1990,11 +1990,28 @@ input[type='text'].padding-0 {
     margin: auto;
     display: block;
   }
+
+  .gap-20px-40px {
+    gap: 20px 40px;
+  }
   .flexcontainer-row {
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: row;
     flex-direction: row;
+  }
+
+  @media (min-width: 769px) {
+    .flexcontainer-row-unless-xs {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  @media (max-width: 768px) {
+    .flexcontainer-row-unless-xs {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   .flexcontainer-align-items-center {

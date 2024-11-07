@@ -129,6 +129,9 @@ public class SRC {
     public static ReactComponentType<
       GovernanceMarkdownGithubProps
     > GovernanceMarkdownGithub;
+    public static ReactComponentType<
+      ProjectDataAvailabilityProps
+    > ProjectDataAvailability;
 
     /**
      * Pushes a global toast message. In SWC, you should use {@link DisplayUtils#notify}, rather than calling this method directly.
