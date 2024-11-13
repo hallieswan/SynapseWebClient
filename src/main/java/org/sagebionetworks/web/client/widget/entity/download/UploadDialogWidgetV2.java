@@ -40,7 +40,6 @@ public class UploadDialogWidgetV2 extends Widget {
 
   public void configure(String entityId) {
     this.entityId = entityId;
-    globalApplicationState.initializeDropZone();
     globalApplicationState.setDropZoneHandler(fileList ->
       this.ref.current.handleUploads(fileList)
     );
