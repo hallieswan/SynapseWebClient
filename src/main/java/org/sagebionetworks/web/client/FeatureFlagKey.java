@@ -40,6 +40,9 @@ public enum FeatureFlagKey {
   // If enabled, sharing settings will appear in a dialog immediately after uploading one or more files.
   SHOW_SHARING_SETTINGS_AFTER_UPLOAD("SHOW_SHARING_SETTINGS_AFTER_UPLOAD"),
 
+  // If enabled, uses the v2 uploader (react implementation) for file entity uploads.
+  UPLOADER_V2("UPLOADER_V2"),
+
   // Last flag is used only for tests
   TEST_FLAG_ONLY("TEST_FLAG_ONLY");
 

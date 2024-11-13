@@ -132,6 +132,7 @@ public class SRC {
     public static ReactComponentType<
       ProjectDataAvailabilityProps
     > ProjectDataAvailability;
+    public static ReactComponentType<EntityUploadModalProps> EntityUploadModal;
 
     /**
      * Pushes a global toast message. In SWC, you should use {@link DisplayUtils#notify}, rather than calling this method directly.
