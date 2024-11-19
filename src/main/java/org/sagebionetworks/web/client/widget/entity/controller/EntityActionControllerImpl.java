@@ -10,11 +10,6 @@ import static org.sagebionetworks.web.client.utils.FutureUtils.getDoneFuture;
 import static org.sagebionetworks.web.client.utils.FutureUtils.getFuture;
 import static org.sagebionetworks.web.client.widget.entity.browse.EntityFilter.CONTAINER;
 import static org.sagebionetworks.web.client.widget.entity.browse.EntityFilter.PROJECT;
-import static org.sagebionetworks.web.shared.WebConstants.FLAG_ISSUE_COLLECTOR_URL;
-import static org.sagebionetworks.web.shared.WebConstants.FLAG_ISSUE_DESCRIPTION_PART_1;
-import static org.sagebionetworks.web.shared.WebConstants.FLAG_ISSUE_DESCRIPTION_PART_2;
-import static org.sagebionetworks.web.shared.WebConstants.FLAG_ISSUE_PRIORITY;
-import static org.sagebionetworks.web.shared.WebConstants.REVIEW_DATA_REQUEST_COMPONENT_ID;
 
 import com.google.common.util.concurrent.FluentFuture;
 import com.google.common.util.concurrent.FutureCallback;
@@ -712,34 +707,9 @@ public class EntityActionControllerImpl
     actionMenu.setActionListener(
       Action.REPORT_VIOLATION,
       (action, event) -> {
-        // report abuse via Jira issue collector
-        String userId = WebConstants.ANONYMOUS, email =
-          WebConstants.ANONYMOUS, displayName = WebConstants.ANONYMOUS, synId =
-          entity.getId();
-        UserProfile userProfile =
-          authenticationController.getCurrentUserProfile();
-        if (userProfile != null) {
-          userId = userProfile.getOwnerId();
-          displayName = DisplayUtils.getDisplayName(userProfile);
-          email = DisplayUtils.getPrimaryEmail(userProfile);
-        }
-
-        ginInjector
-          .getSynapseJSNIUtils()
-          .showJiraIssueCollector(
-            "", // summary
-            FLAG_ISSUE_DESCRIPTION_PART_1 +
-            gwt.getCurrentURL() +
-            FLAG_ISSUE_DESCRIPTION_PART_2,
-            FLAG_ISSUE_COLLECTOR_URL,
-            userId,
-            displayName,
-            email,
-            synId, // Synapse data object ID
-            REVIEW_DATA_REQUEST_COMPONENT_ID,
-            null, // AR ID
-            FLAG_ISSUE_PRIORITY
-          );
+        popupUtils.openInNewWindow(
+          WebConstants.PRIVACY_SECURITY_COMPLIANCE_HELP_CENTER_URL
+        );
       }
     );
   }
