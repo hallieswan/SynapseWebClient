@@ -10,11 +10,6 @@ import static org.sagebionetworks.web.client.utils.FutureUtils.getDoneFuture;
 import static org.sagebionetworks.web.client.utils.FutureUtils.getFuture;
 import static org.sagebionetworks.web.client.widget.entity.browse.EntityFilter.CONTAINER;
 import static org.sagebionetworks.web.client.widget.entity.browse.EntityFilter.PROJECT;
-import static org.sagebionetworks.web.shared.WebConstants.FLAG_ISSUE_COLLECTOR_URL;
-import static org.sagebionetworks.web.shared.WebConstants.FLAG_ISSUE_DESCRIPTION_PART_1;
-import static org.sagebionetworks.web.shared.WebConstants.FLAG_ISSUE_DESCRIPTION_PART_2;
-import static org.sagebionetworks.web.shared.WebConstants.FLAG_ISSUE_PRIORITY;
-import static org.sagebionetworks.web.shared.WebConstants.REVIEW_DATA_REQUEST_COMPONENT_ID;
 
 import com.google.common.util.concurrent.FluentFuture;
 import com.google.common.util.concurrent.FutureCallback;
@@ -713,7 +708,7 @@ public class EntityActionControllerImpl
       Action.REPORT_VIOLATION,
       (action, event) -> {
         popupUtils.openInNewWindow(
-          "https://sagebionetworks.jira.com/servicedesk/customer/portal/20"
+          WebConstants.PRIVACY_SECURITY_COMPLIANCE_HELP_CENTER_URL
         );
       }
     );

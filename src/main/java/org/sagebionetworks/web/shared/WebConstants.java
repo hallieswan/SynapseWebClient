@@ -31,6 +31,8 @@ public class WebConstants {
 
   public static final String DOCS_BASE_URL = "https://help.synapse.org/";
   public static final String DOCS_URL = DOCS_BASE_URL + "docs/";
+  public static final String PRIVACY_SECURITY_COMPLIANCE_HELP_CENTER_URL =
+    "https://sagebionetworks.jira.com/servicedesk/customer/portal/20";
   public static final String PROVENANCE_API_URL =
     DOCS_URL + "Provenance.1972470373.html";
   public static final String SHARING_SETTINGS_URL =

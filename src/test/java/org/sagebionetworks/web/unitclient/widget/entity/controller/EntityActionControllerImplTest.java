@@ -5330,20 +5330,9 @@ public class EntityActionControllerImplTest {
 
     // Call under test - invocation
     actionListenerCaptor.getValue().onAction(Action.REPORT_VIOLATION, null);
-    verify(mockJsniUtils)
-      .showJiraIssueCollector(
-        "", // summary
-        FLAG_ISSUE_DESCRIPTION_PART_1 +
-        url +
-        WebConstants.FLAG_ISSUE_DESCRIPTION_PART_2, // description
-        FLAG_ISSUE_COLLECTOR_URL,
-        ownerId,
-        DisplayUtils.getDisplayName(firstName, lastName, username),
-        email,
-        entityId, // Synapse data object ID
-        REVIEW_DATA_REQUEST_COMPONENT_ID,
-        null, // Access requirement ID
-        FLAG_ISSUE_PRIORITY
+    verify(mockPopupUtils)
+      .openInNewWindow(
+        WebConstants.PRIVACY_SECURITY_COMPLIANCE_HELP_CENTER_URL
       );
   }
 }
