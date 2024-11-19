@@ -199,6 +199,8 @@ public abstract class ReactComponentV2<
 
       return childWidgets
         .stream()
+        // SWC-7131: Visibility via style: {display: "none"} may not work in production
+        .filter(ReactComponentV2::isVisible)
         .map(ReactComponentV2::createReactElement)
         .toArray(ReactElement<?, ?>[]::new);
     } else {
