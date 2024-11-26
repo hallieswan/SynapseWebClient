@@ -81,6 +81,8 @@ public class FilesBrowserViewImpl implements FilesBrowserView {
   }
 
   public void rerenderFileBrowser(String parentContainerId) {
+    // TODO: Should not need to remount, but currently the parentContainer is not shown if the existing react component is updated
+    // TODO: Bug: The tree is not always auto-expanding (to the path to the parent container Id)
     reactFileBrowserContainer.clear();
     ReactComponent componentContainer = new ReactComponent();
     EntityFileBrowserProps props = EntityFileBrowserProps.create(
