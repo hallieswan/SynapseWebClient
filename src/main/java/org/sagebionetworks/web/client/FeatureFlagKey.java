@@ -43,6 +43,9 @@ public enum FeatureFlagKey {
   // If enabled, uses the v2 uploader (react implementation) for file entity uploads.
   UPLOADER_V2("UPLOADER_V2"),
 
+  // If enabled, uses the file browser react implementation
+  REACT_FILE_BROWSER("REACT_FILE_BROWSER"),
+
   // Last flag is used only for tests
   TEST_FLAG_ONLY("TEST_FLAG_ONLY");
 

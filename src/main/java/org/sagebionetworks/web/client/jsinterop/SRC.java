@@ -21,6 +21,7 @@ public class SRC {
     public static ReactComponentType<EntityBadgeIconsProps> EntityBadgeIcons;
     public static ReactComponentType<DatasetEditorProps> DatasetItemsEditor;
     public static ReactComponentType<EntityFinderProps> EntityFinder;
+    public static ReactComponentType<EntityFileBrowserProps> EntityFileBrowser;
     public static ReactComponentType<EvaluationCardProps> EvaluationCard;
     public static ReactComponentType<
       EvaluationEditorPageProps
