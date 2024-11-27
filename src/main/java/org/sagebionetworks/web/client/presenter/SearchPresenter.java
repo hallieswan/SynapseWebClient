@@ -1,7 +1,6 @@
 package org.sagebionetworks.web.client.presenter;
 
 import com.google.gwt.activity.shared.AbstractActivity;
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.http.client.URL;
 import com.google.gwt.place.shared.Place;
