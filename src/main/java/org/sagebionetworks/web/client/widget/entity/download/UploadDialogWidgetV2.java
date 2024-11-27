@@ -4,7 +4,6 @@ import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 import org.sagebionetworks.web.client.GlobalApplicationState;
-import org.sagebionetworks.web.client.GlobalApplicationStateImpl;
 import org.sagebionetworks.web.client.context.SynapseReactClientFullContextPropsProvider;
 import org.sagebionetworks.web.client.events.EntityUpdatedEvent;
 import org.sagebionetworks.web.client.jsinterop.EntityUploadHandle;
@@ -27,7 +26,7 @@ public class UploadDialogWidgetV2 extends Widget {
 
   @Inject
   public UploadDialogWidgetV2(
-    GlobalApplicationStateImpl globalApplicationState,
+    GlobalApplicationState globalApplicationState,
     EventBus eventBus,
     SynapseReactClientFullContextPropsProvider contextProvider
   ) {
