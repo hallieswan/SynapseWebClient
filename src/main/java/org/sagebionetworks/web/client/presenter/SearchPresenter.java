@@ -302,7 +302,7 @@ public class SearchPresenter
       String fixedQueryString = queryString;
       // check for url encoded
       if (queryString.startsWith("%7B")) {
-        fixedQueryString = URL.decode(queryString);
+        fixedQueryString = URL.decodePathSegment(queryString);
       }
       if (fixedQueryString.startsWith("{")) {
         try {
