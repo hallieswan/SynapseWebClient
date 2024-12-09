@@ -32,9 +32,9 @@ public class ErrorPageProps extends ReactComponentProps {
     props.type = type;
     props.message = message;
     props.entityId = entityId;
-
-    props.entityVersion =
-      entityVersion != null ? entityVersion.doubleValue() : null;
+    if (entityVersion != null) {
+      props.entityVersion = entityVersion.doubleValue();
+    }
     props.gotoPlace = gotoPlace;
     return props;
   }
