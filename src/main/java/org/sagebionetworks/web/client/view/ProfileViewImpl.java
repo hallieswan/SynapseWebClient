@@ -14,6 +14,7 @@ import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
+import java.util.Arrays;
 import java.util.Collections;
 import org.gwtbootstrap3.client.ui.Alert;
 import org.gwtbootstrap3.client.ui.AnchorListItem;
@@ -307,8 +308,9 @@ public class ProfileViewImpl extends Composite implements ProfileView {
       projectsOnly.setKey("node_type");
       projectsOnly.setValue("project");
       query.getBooleanQuery().add(projectsOnly);
+
       query.setQueryTerm(
-        Collections.singletonList(projectSearchTextBox.getValue())
+        Arrays.asList(projectSearchTextBox.getValue().split("\\s+"))
       );
       query.writeToJSONObject(adapter);
       searchJSON = adapter.toJSONString();
