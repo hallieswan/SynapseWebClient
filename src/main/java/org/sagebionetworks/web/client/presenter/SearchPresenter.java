@@ -293,7 +293,7 @@ public class SearchPresenter
     SearchQuery query = getBaseSearchQuery();
 
     query.setQueryTerm(
-      Arrays.asList(queryString.replace("%20", " ").split(" "))
+      Arrays.asList(queryString.replace("%20", " ").split("\\s+"))
     );
 
     // if query parses into SearchQuery, use that, otherwise use it as a
