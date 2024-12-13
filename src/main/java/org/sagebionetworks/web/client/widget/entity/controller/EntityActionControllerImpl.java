@@ -2164,7 +2164,6 @@ public class EntityActionControllerImpl
         entity.getId() +
         ")"
       )
-      .setSelectedCopy(count -> "Destination")
       .setConfirmButtonCopy("Create Link")
       .build()
       .show();
@@ -2268,7 +2267,6 @@ public class EntityActionControllerImpl
         entity.getId() +
         ")"
       )
-      .setSelectedCopy(count -> "Destination")
       .setConfirmButtonCopy("Move")
       .setVersionSelection(EntityFinderWidget.VersionSelection.DISALLOWED)
       .setTreeOnly(true)
